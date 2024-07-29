@@ -9,8 +9,12 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "administradores")
 @Data
-public class Administrador extends Persona{
+public class Administrador extends Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String idAdmin;
+
+    @ManyToOne
+    @JoinColumn(name = "idDepa",nullable = false)
+    private Departamento departamento;
 }

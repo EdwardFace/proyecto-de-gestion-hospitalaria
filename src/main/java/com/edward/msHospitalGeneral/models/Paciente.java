@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
 
 
 @EqualsAndHashCode(callSuper = true)
@@ -15,5 +16,9 @@ public class Paciente extends Persona {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String idPaciente;
 
+    @OneToMany(mappedBy = "paciente")
+    private List<RegistroMedico> registrosMedicos;
 
+    @OneToMany(mappedBy = "paciente")
+    private List<Cita> citas;
 }

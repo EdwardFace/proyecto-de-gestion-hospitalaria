@@ -14,4 +14,12 @@ public class RegistroMedico {
     private String diagnostico;
     private String[] medicamentos;
     private String tratamiento;
+
+    @ManyToOne
+    @JoinColumn(name = "idMed",nullable = false)
+    private Medico medico;
+
+    @ManyToOne
+    @JoinColumn(name = "idPaciente",nullable = false)
+    private Paciente paciente;
 }

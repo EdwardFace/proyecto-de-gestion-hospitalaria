@@ -17,4 +17,12 @@ public class Cita {
     private LocalDate fechaCita;
     private String hora;
     private Estado estado;
+
+    @ManyToOne
+    @JoinColumn(name = "idPaciente",nullable = false)
+    private Paciente paciente;
+
+    @ManyToOne
+    @JoinColumn(name = "idMed",nullable = false)
+    private Medico medico;
 }
