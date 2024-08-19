@@ -1,12 +1,11 @@
 package com.edward.msHospitalGeneral.controllers;
 
+import com.edward.msHospitalGeneral.dto.PacienteRequestDto;
 import com.edward.msHospitalGeneral.dto.PacienteResponseDto;
 import com.edward.msHospitalGeneral.services.PacienteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class PacienteController {
     private PacienteServiceImpl pacienteService;
 
     @GetMapping(name = "/all")
-    private ResponseEntity<List<PacienteResponseDto>> obtenerPacientes(){
+    public ResponseEntity<List<PacienteResponseDto>> obtenerPacientes(){
         return ResponseEntity.ok(pacienteService.allPacientes());
     }
 

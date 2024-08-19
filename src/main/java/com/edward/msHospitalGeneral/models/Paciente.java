@@ -16,9 +16,12 @@ public class Paciente extends Persona {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String idPaciente;
 
-    @OneToMany(mappedBy = "paciente")
+    @Enumerated(EnumType.STRING)
+    private Genero genero;
+
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RegistroMedico> registrosMedicos;
 
-    @OneToMany(mappedBy = "paciente")
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cita> citas;
 }
